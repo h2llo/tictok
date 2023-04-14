@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'features/authentication/sign_up_screen.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const TicTokApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TicTokApp extends StatelessWidget {
+  const TicTokApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xffe9435a),
       ),
-      home: Container(
-        color: Colors.white,
-      ),
+      home: const SignUpScreen(),
     );
   }
 }
