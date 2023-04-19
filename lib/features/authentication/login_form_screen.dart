@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tictok/constants/gaps.dart';
 import 'package:tictok/constants/sizes.dart';
 import 'package:tictok/features/authentication/widgets/form_button.dart';
+import 'package:tictok/features/onboarding/interests_screen.dart';
 
 class LoginFormScreen extends StatefulWidget {
   const LoginFormScreen({super.key});
@@ -15,7 +16,12 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
 
   void _onLoginTap() {
     if (_formKey.currentState != null) {
-      _formKey.currentState!.validate();
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => InterestScreen(),
+        ));
+      }
     }
   }
 
@@ -37,15 +43,19 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                 TextFormField(
                   decoration: InputDecoration(hintText: 'Email'),
                   validator: (value) {
-                    return 'no';
+                    if (value != null && value.isEmpty) return 'no';
+                    return null;
                   },
+                  onSaved: (newValue) => print(newValue),
                 ),
                 Gaps.v16,
                 TextFormField(
                   decoration: InputDecoration(hintText: 'Password'),
                   validator: (value) {
-                    return 'no';
+                    if (value != null && value.isEmpty) return 'no';
+                    return null;
                   },
+                  onSaved: (newValue) => print(newValue),
                 ),
                 Gaps.v28,
                 GestureDetector(
