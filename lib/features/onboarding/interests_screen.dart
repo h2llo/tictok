@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tictok/constants/gaps.dart';
 import 'package:tictok/constants/sizes.dart';
+import 'package:tictok/features/onboarding/tutorial_screen.dart';
 import 'package:tictok/features/onboarding/widgets/interest_button.dart';
 
 const interests = [
@@ -66,6 +67,15 @@ class _InterestScreenState extends State<InterestScreen> {
         _showTitle = false;
       });
     }
+  }
+
+  void _onNextTap() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TutorialScreen(),
+      ),
+    );
   }
 
   @override
@@ -141,19 +151,22 @@ class _InterestScreenState extends State<InterestScreen> {
             right: Sizes.size20,
             left: Sizes.size20,
           ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              vertical: Sizes.size20,
-            ),
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-            ),
-            child: Text(
-              'Next',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: Sizes.size16,
+          child: GestureDetector(
+            onTap: _onNextTap,
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: Sizes.size20,
+              ),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+              ),
+              child: Text(
+                'Next',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: Sizes.size16,
+                ),
               ),
             ),
           ),
