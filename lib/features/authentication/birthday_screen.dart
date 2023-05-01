@@ -25,9 +25,12 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
   }
 
   onNextTap() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => InterestScreen(),
-    ));
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => InterestScreen(),
+        ), (route) {
+      return false;
+    });
   }
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tictok/constants/sizes.dart';
-import 'package:tictok/features/onboarding/interests_screen.dart';
+import 'package:tictok/features/main_navigation/main_navigation.dart';
 
 void main() {
   runApp(const TicTokApp());
@@ -24,7 +24,7 @@ class TicTokApp extends StatelessWidget {
                   color: Colors.black,
                   fontSize: Sizes.size16 + Sizes.size2,
                   fontWeight: FontWeight.w600))),
-      home: const InterestScreen(),
+      home: MainNavigation(),
     );
   }
 }
